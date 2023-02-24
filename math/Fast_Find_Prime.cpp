@@ -12,7 +12,6 @@ bool is_prime(ull n){
     if(n%2) return false;
     ull d=n-1, r=0;
     while(d%2==0){d/=2; r++;}
-    
     int a[5]={2, 3, 5, 7, 11};
     for(int k=0; k<5; k++){
         if(a[k]==n) return true;
