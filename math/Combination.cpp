@@ -15,3 +15,7 @@ inline long long comb(int n, int r){
   if(r<0||n<r) return 0;
   return ((ft[n]*nft[r]%MOD)*nft[n-r])%MOD;
 }
+
+long long bigComb(long long n, long long r){
+  
+}
