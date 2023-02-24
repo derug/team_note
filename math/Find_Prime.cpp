@@ -18,6 +18,7 @@ vector<pair<int,int>> prime_fact(int n){
   vector<pair<int,int>> tmp;
   if(n==1) return tmp;
   for(int p: prime){
+    if(n<=MAX&&isPrime[n]){tmp.push_back({n,1}); return tmp;}
     if(n%p==0) tmp.push_back({p,0});
     while(n%p==0){
       tmp.back().second++;
