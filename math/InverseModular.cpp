@@ -1,5 +1,5 @@
-const int MAX, MOD;
-int iv[MAX];
+const long long MAX, MOD;
+long long iv[MAX];
 
 void init(){
   iv[1] = 1;
