@@ -17,5 +17,10 @@ inline long long comb(int n, int r){
 }
 
 long long bigComb(long long n, long long r){
-  
+  long long tmp=1;
+  while(n||r){
+    tmp=tmp*comb(n%MOD, r%MOD)%MOD;
+    n/=MOD, r/=MOD;
+  }
+  return tmp;
 }
