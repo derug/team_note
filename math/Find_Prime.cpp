@@ -2,7 +2,7 @@ const int MAX;
 bool isPrime[MAX+2];
 vector<int> prime;
 
-void findPrime(){
+void find_prime(){
   memset(isPrime,true,sizeof(isPrime));
   isPrime[0]=isPrime[1]=false;
   for(long long i=2; i*i<=MAX; i++){
