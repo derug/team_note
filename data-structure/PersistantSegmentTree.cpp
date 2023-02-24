@@ -1,6 +1,3 @@
-#include <cstdio>
-#include <algorithm>
-using namespace std;
 const int MAX_DEPTH = 18; // 세그먼트 트리의 높이
 const int MAX_ST = 1<<MAX_DEPTH; // 초기화에 사용되는 노드 개수
 const int MAX = 10001; // 점의 개수
