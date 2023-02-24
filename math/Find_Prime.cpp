@@ -33,7 +33,7 @@ int num_of_divisors(int n){
   auto factor = prime_fact(n);
   int tmp=1;
   for(auto a: factor)
-    tmp*=a.second + 1;
+    tmp*=(a.second+1);
   return tmp;
 }
 
