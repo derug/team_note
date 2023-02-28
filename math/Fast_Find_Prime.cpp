@@ -51,4 +51,42 @@ bool is_prime(ull n){
 #undef T
 }
 
-//폴라드 로 추가 예정
+ull gcd(ull a, ull b){
+    if(!b) return a;
+    return gcd(b,a%b);
+}
+
+ull pollard_rho(ull n){
+    random_device rd;
+    mt19937_64 gen(rd());
+    uniform_int_distribution<ull> dist(1,n-1);
+    ull a, b, c, g=1;
+    a=b=dist(gen);
+    c=dist(gen);
+    function<ull(ull)> f=[&](ull x){
+        return addmod(mulmod(x,x,n),c,n);
+    };
+    while(g==1){
+        a=f(a);
+        b=f(f(b));
+        g=gcd(a>b?a-b:b-a,n);
+    }
+    return g;
+}
+
+// 무작위 순서로 소인수분해
+void factorize(ull n, vector<ull>& f){
+    if(n==1) return;
+    if(n%2==0){
+        f.push_back(2);
+        factorize(n/2, f);
+    }
+    else if(is_prime(n)){
+        f.push_back(n);
+    }
+    else{
+        ull p=pollard_rho(n);
+        factorize(p, f);
+        factorize(n/p, f);
+    }
+}
