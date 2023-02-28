@@ -1,7 +1,5 @@
 typedef unsigned long long ull;
 
-typedef unsigned long long ull;
-
 inline ull addmod(ull a, ull b, ull p){
     a%=p, b%=p;
     return (a>=p-b?a-(p-b):a+b);
