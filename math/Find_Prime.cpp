@@ -7,9 +7,9 @@ void find_prime(){
     isPrime[0]=isPrime[1]=false;
     for(long long i=2; i*i<=MAX; i++){
         if(isPrime[i]){
-        prime.push_back(i);
-        for(long long j=i*i; j<=MAX; j+=i)
-            isPrime[j]=false;
+            prime.push_back(i);
+            for(long long j=i*i; j<=MAX; j+=i)
+                isPrime[j]=false;
         }
     }
 }
