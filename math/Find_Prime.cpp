@@ -5,7 +5,7 @@ vector<int> prime;
 void find_prime(){
     memset(isPrime,true,sizeof(isPrime));
     isPrime[0]=isPrime[1]=false;
-    for(long long i=2; i*i<=MAX; i++){
+    for(long long i=2; i<=MAX; i++){
         if(isPrime[i]){
             prime.push_back(i);
             for(long long j=i*i; j<=MAX; j+=i)
