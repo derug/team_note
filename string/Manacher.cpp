@@ -13,6 +13,5 @@ vector<int> manacher(const string& s){
         while(0<=i-A[i]-1&&i+A[i]+1<n&&t[i-A[i]-1]==t[i+A[i]+1]) A[i]++;
         if(r<i+A[i]) r=i+A[i], p=i;
     }
-
     return A;
 }
