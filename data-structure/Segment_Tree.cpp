@@ -4,6 +4,11 @@ const int MAX, INF;
 
 struct Seg{
     ll arr[MAX], sgt[MAX*4];
+    
+    Seg(){
+        memset(arr,0,sizeof(arr));
+        memset(sgt,0,sizeof(sgt));
+    }
 
     ll init(int nl, int nr, int node){
         if(nl==nr) return sgt[node]=arr[l];
