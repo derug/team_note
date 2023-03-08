@@ -11,7 +11,7 @@ struct Seg{
     }
 
     ll init(int nl, int nr, int node){
-        if(nl==nr) return sgt[node]=arr[l];
+        if(nl==nr) return sgt[node]=arr[nl];
         int mid=nl+nr>>2;
         return sgt[node]=min(init(nl, mid, node*2), init(mid+1, nr, node*2+1));
     }
