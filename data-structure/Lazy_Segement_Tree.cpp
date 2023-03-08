@@ -5,7 +5,7 @@ const ll MAX;
 struct LazySeg{
     ll arr[MAX], sgt[4*MAX], lazy[4*MAX];
 
-    SegmentTree(){
+    LazySeg(){
         memset(arr,0,sizeof(arr));
         memset(sgt,0,sizeof(sgt));
         memset(lazy,0,sizeof(lazy));
