@@ -1,6 +1,6 @@
 typedef long long ll;
 
-const int MAX, INF;
+const ll MAX, INF;
 
 struct Seg{
     ll arr[MAX], sgt[MAX*4];
