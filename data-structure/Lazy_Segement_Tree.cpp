@@ -20,7 +20,7 @@ struct LazySeg{
     void update_lazy(int nl, int nr, int node){
         if(lazy[node]){
             sgt[node]+=(nr-nl+1)*lazy[node];
-            if(l!=r){
+            if(nl!=nr){
                 lazy[node*2]+=lazy[node];
                 lazy[node*2+1]+=lazy[node];
             }
