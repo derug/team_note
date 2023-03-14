@@ -1,3 +1,4 @@
+//이거 엄청 느림 최적화 
 const int MAX, INF;
 
 struct Edge{
