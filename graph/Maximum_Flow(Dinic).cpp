@@ -61,9 +61,9 @@ int DinicDFS(int cur, int t, int f){
 int DinicMaxFlow(int s, int t){
     int total=0;
     while(DinicBFS(s,t)){
-        memset(w,0,sizeof(w));
+        memset(work,0,sizeof(work));
         while(1){
-            int am=dinic(s,t,INF);
+            int am=DinicDFS(s,t,INF);
             if(!am) break;
             total+=am;
         }
