@@ -1,10 +1,10 @@
 const int MAX, INF;
 
 struct Edge{
-    int to, c, f=0;
+    int to, c, f;
     Edge* rev;
     Edge(){}
-    Edge(int to, int c): to(to), c(c){}
+    Edge(int to, int c): to(to), c(c), f(0), rev(nullptr){}
     int spare(){
         return c-f;
     }
@@ -14,7 +14,6 @@ struct Edge{
     }
 };
 
-int n;
 vector<Edge*> adj[MAX];
 
 void makeEdge(int from, int to, int c){
@@ -27,8 +26,8 @@ void makeEdge(int from, int to, int c){
 int maxFlow(int s, int t){
     int total=0;
     while(1){
-        vector<int> prev(n+1,-1);
-        vector<Edge*> path(n+1);
+        vector<int> prev(MAX,-1);
+        vector<Edge*> path(MAX);
         queue<int> Q;
         Q.push(s);
         while(!Q.empty()&&prev[t]==-1){
