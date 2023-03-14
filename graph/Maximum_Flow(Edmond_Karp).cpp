@@ -1,10 +1,10 @@
 const int MAX, INF;
 
 struct Edge{
-    int to, c, f;
+    int to, c, f=0;
     Edge* rev;
     Edge(){}
-    Edge(int to, int c): to(to), c(c), f(0), rev(nullptr){}
+    Edge(int to, int c): to(to), c(c){}
     int spare(){
         return c-f;
     }
