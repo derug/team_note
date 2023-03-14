@@ -13,11 +13,11 @@ vector<int> SPFA(int n, int start){
     ++visited[start];
     inQ[start]=true;
     while(!Q.empty()){
-        int idx=Q.front(); Q.pop();
-        inQ[idx]=false;
+        int cur=Q.front(); Q.pop();
+        inQ[cur]=false;
         for(auto p: adj[idx]){
             int next=p.first;
-            int ndst=dst[idx]+p.second;
+            int ndst=dst[cur]+p.second;
             if(ndst<dst[next]){
                 dst[next]=ndst;
                 if(!inQ[next]){
