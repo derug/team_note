@@ -33,8 +33,8 @@ int maxFlow(int s, int t){
         while(!Q.empty()&&prev[t]==-1){
             int cur=Q.front(); Q.pop();
             for(Edge* e: adj[cur]){
-                int next=e->to;
-                if(e->spare()>0&&prev[next]==-1){
+                int next=e->to, c=e->spare();
+                if(c>0&&prev[next]==-1){
                     prev[next]=cur;
                     path[next]=e;
                     Q.push(next);
