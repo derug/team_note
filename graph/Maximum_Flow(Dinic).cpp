@@ -1,4 +1,4 @@
-//이거 엄청 느림 최적화 
+//이거 엄청 느림 최적화 필요
 const int MAX, INF;
 
 struct Edge{
