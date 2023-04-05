@@ -1,1 +1,12 @@
-aa
+num = __builtin_popcount(n); // unsigned int n의 2진법 형태 자릿수의 합 계산
+
+int popcount(unsigned int n) {
+	n = (n >>  1 & 0x55555555) + (n & 0x55555555);
+	n = (n >>  2 & 0x33333333) + (n & 0x33333333);
+	n = (n >>  4 & 0x0F0F0F0F) + (n & 0x0F0F0F0F);
+	n = (n >>  8 & 0x00FF00FF) + (n & 0x00FF00FF);
+	n = (n >> 16 & 0x0000FFFF) + (n & 0x0000FFFF);
+	return n;
+}
+// 위 함수 직접 구현
+
