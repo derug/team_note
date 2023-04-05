@@ -6,7 +6,7 @@ int main()
 	printf("%d\n", __builtin_popcount(b)); // 0b0111 : three
 	return 0;
 }
-__builtin_popcount(x) // x의 값을 이진수로 나타냈을 때, 1의 개수를 반
+__builtin_popcount(x) // x의 값을 이진수로 나타냈을 때, 1의 개수를 반환
 
 int popcount(unsigned int n) {
 	n = (n >>  1 & 0x55555555) + (n & 0x55555555);
