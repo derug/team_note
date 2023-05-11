@@ -3,7 +3,7 @@ const int MAX, INF;
 struct Edge{
     int to, c, d, f=0;
     Edge* rev;
-    Edge(int to, int c, int d): to(to), c(c), d(c){}
+    Edge(int to, int c, int d): to(to), c(c), d(d){}
     int spare(){
         return c-f;
     }
