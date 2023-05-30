@@ -25,3 +25,21 @@ struct BitSeg{
         return ret;
     }
 }
+
+// ver. 2
+
+void upd(int idx, ll val)
+{
+	while (idx <= n) T[idx] += val, idx += idx & -idx;
+}
+void init(void)
+{
+	for (int i = 1; i <= n; i++) upd(i, a[i]);
+}
+ll qry(int idx)
+{
+	ll ret = 0;
+	while (idx) ret += T[idx], idx -= idx & -idx;
+	return ret;
+}
+
