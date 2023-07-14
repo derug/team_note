@@ -1,4 +1,4 @@
-class KMP{
+struct KMP{
     string p, t;
     vector<int> c;
     vector<int> pos;
