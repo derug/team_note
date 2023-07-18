@@ -1,5 +1,5 @@
 // 각 글자를 중심으로 했을 때 최대 회문 길이 배열
-vector<int> manacher(const string& s){
+vector<int> Manacher(const string& s){
     int n=s.size();
     string t="";
     for(int i=0; i<n; i++){ t+='.'; t+=s[i]; }
