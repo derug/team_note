@@ -1,5 +1,5 @@
 // 문자열 s와 i번째로 시작하는 부분 문자열의 최장 공통 접두사 길이 배열
-vector<int> Z(string s){
+vector<int> Z(string& s){
     int n=s.size();
     vector<int> z(n);
     z[0]=n;
