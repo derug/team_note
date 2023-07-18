@@ -1,6 +1,6 @@
 // 접미사 배열의 사전 순 배열 
 // O(Nlog^2N) 에서 정렬을 counting sort로 바꾸면 O(NlogN)이 가능
-vector<int> suffix(string& s){
+vector<int> Suffix(string& s){
     int n=s.size();
     vector<int> suf(n);
     vector<int> g(n);
