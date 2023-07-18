@@ -31,3 +31,20 @@ vector<int> Suffix(string& s){
     }
     return suf;
 }
+// suffix array에서 인접한 최장 공통 접두사 길이 배열
+vector<int> LCP(string& s, vector<int>& suf){
+    int n=s.size();
+    vector<int> r(n);
+    vector<int> lcp(n,-1);
+    for(int i=0; i<n; i++) r[suf[i]]=i;
+    int k=0;
+    for(int i=0; i<n; i++){
+        if(r[i]){
+            int j=suf[r[i]-1];
+            while(i+k<n&&j+k<n&&s[i+k]==s[j+k]) k++;
+            lcp[r[i]]=k;
+            if(k) k--;
+        }
+    }
+    return lcp;
+}
