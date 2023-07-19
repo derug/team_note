@@ -5,7 +5,7 @@ struct Trie{
     Trie(): check(false) {}
     
     ~Trie(){
-        for(auto it=ch.begin(), it!=ch.end(); it++)
+        for(auto it=ch.begin(); it!=ch.end(); it++)
             delete it->second;
     }
     
