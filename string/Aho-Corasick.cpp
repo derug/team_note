@@ -42,7 +42,7 @@ struct Trie{
                 }
                 if(next->fail->check)
                     next->check=true;
-                q.push(next);
+                Q.push(next);
             }
         }
     }
