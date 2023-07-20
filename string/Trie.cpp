@@ -35,11 +35,13 @@ struct Trie{
     Trie* ch[26];
     bool check;
     
-    Trie(): check(false) {}
+    Trie(): check(false) {
+        for(int i=0; i<26; i++) ch[i]=nullptr;
+    }
     
     ~Trie(){
-        for(auto it=ch.begin(); it!=ch.end(); it++)
-            delete it->second;
+        for(int i=0; i<26; i++)
+            if(ch[i]) delete ch[i];
     }
     
     void insert(string& s, int idx){
