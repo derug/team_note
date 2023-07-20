@@ -73,7 +73,7 @@ vector<int> find(Trie* root, string& s){
     return pos;
 }
 // array를 사용하는 방법 (속도 빠름, 메모리 많음)
-// a~z까지
+// a~z까지만 있음
 struct Trie{
     Trie* ch[26];
     Trie* fail;
