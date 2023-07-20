@@ -62,7 +62,7 @@ vector<int> find(Trie* root, string& s){
     vector<int> pos;
     
     for(int i=0; i<n; i++){
-        while(cur!=this&&cur->ch[s[i]]==nullptr)
+        while(cur!=root&&cur->ch[s[i]]==nullptr)
             cur=cur->fail;
         if(cur->ch[s[i]]!=nullptr)
             cur=cur->ch[s[i]];
