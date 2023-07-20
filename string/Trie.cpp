@@ -1,4 +1,4 @@
-//map을 사용하는 방법 (속도 느림, 메모리 적음)
+// map을 사용하는 방법 (속도 느림, 메모리 적음)
 struct Trie{
     map<char,Trie*> ch;
     bool check;
@@ -29,8 +29,8 @@ struct Trie{
         }
     }
 };
-//array를 사용하는 방법 (속도 빠름, 메모리 큼)
-//a~z까지만 있음
+// array를 사용하는 방법 (속도 빠름, 메모리 큼)
+// a~z까지만 있음
 struct Trie{
     Trie* ch[26];
     bool check;
