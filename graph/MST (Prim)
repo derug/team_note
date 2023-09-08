@@ -10,7 +10,7 @@ vector<pll> adj[MAX];
 ll Prim(ll n)
 {
 	ll cnt = 0, sum = 0;
-	vector<ll> vst(MAX + 10);
+	vector<ll> vst(n + 10);
 	priority_queue<pll, vector<pll>, greater<pll>> pQ;
 
 	cnt++, vst[1] = 1;
