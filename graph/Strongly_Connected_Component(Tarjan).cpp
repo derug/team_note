@@ -1,18 +1,15 @@
-const int MAX;
-
-vector<int> adj[MAX];
-
 struct SCC{
     int n, sn, idx;
     vector<int> col, par;
     vector<bool> fin;
-    vector<vector<int>> scc;
+    vector<vector<int>> adj, scc;
     stack<int> S;
 
     SCC(int _n): n(_n), sn(0), idx(0){
         col.resize(n);
         par.resize(n);
         fin.resize(n);
+        adj.resize(n);
     }
 
     int dfs(int a){
