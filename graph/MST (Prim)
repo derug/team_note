@@ -1,36 +1,34 @@
-#include <bits/stdc++.h>
 #define X first
 #define Y second
 
-using namespace std;
 typedef long long ll;
-typedef pair<ll, ll> pp;
+typedef pair<ll, ll> pll;
 
-ll n, m, cnt, sum, vst[200010];
-vector<pp> v[200010];
-priority_queue<pp, vector<pp>, greater<pp>> pQ;
+const ll MAX;
+vector<pll> adj[MAX];
 
-int main(void)
+ll Prim(ll n)
 {
-	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	ll cnt = 0, sum = 0;
+	vector<ll> vst(MAX + 10);
+	priority_queue<pll, vector<pll>, greater<pll>> pQ;
 
-	cin >> n >> m;
-	for (int i = 1; i <= m; i++)
-	{
-		int p, q, r; cin >> p >> q >> r;
-		v[p].push_back({r, q}), v[q].push_back({r, p});
-	}
 	cnt++, vst[1] = 1;
-	for (pp pi : v[1]) pQ.push(pi);
+	for (pll pi : adj[1]) pQ.push(pi);
 
-	while (!pQ.empty() && cnt < n)
+	while (!pQ.empty())
 	{
-		pp qt = pQ.top(); pQ.pop();
+		pll qt = pQ.top(); pQ.pop();
 		if (vst[qt.Y]) continue;
+
 		cnt++, vst[qt.Y] = 1, sum += qt.X;
-		for (pp pi : v[qt.Y]) if (!vst[pi.Y]) pQ.push(pi);
+		if (cnt == n) break;
+
+		for (pll pi : adj[qt.Y])
+			if (!vst[pi.Y])
+				pQ.push(pi);
 	}
 
-	if (cnt == n) cout << sum;
-	else cout << -1;
+	if (cnt == n) return sum;
+	return -1;
 }
