@@ -28,6 +28,10 @@ struct BitSeg{
 
 // ver. 2
 
+const int MAX;
+
+int T[MAX];
+
 void upd(int idx, ll val)
 {
 	while (idx <= n) T[idx] += val, idx += idx & -idx;
