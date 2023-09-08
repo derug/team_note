@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define X first
+#define Y second
+
+using namespace std;
+typedef long long ll;
+typedef pair<ll, ll> pp;
+
+ll n, m, cnt, sum, vst[200010];
+vector<pp> v[200010];
+priority_queue<pp, vector<pp>, greater<pp>> pQ;
+
+int main(void)
+{
+	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+	cin >> n >> m;
+	for (int i = 1; i <= m; i++)
+	{
+		int p, q, r; cin >> p >> q >> r;
+		v[p].push_back({r, q}), v[q].push_back({r, p});
+	}
+	cnt++, vst[1] = 1;
+	for (pp pi : v[1]) pQ.push(pi);
+
+	while (!pQ.empty() && cnt < n)
+	{
+		pp qt = pQ.top(); pQ.pop();
+		if (vst[qt.Y]) continue;
+		cnt++, vst[qt.Y] = 1, sum += qt.X;
+		for (pp pi : v[qt.Y]) if (!vst[pi.Y]) pQ.push(pi);
+	}
+
+	if (cnt == n) cout << sum;
+	else cout << -1;
+}
