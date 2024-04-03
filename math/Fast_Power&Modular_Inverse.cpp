@@ -8,6 +8,6 @@ long long fastPow(long long a, long long b){
 }
 
 inline long long divMod(long long a, long long b){
-    b=fastPow(a, MOD-2);
+    b=fastPow(b, MOD-2);
     return a*b%MOD;
 }
