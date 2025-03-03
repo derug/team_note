@@ -11,7 +11,10 @@ struct PST{
     ll arr[MAX];
     vector<Node*> root;
     
-    PST(){ root.push_back(new Node()); }
+    PST(){
+        memset(arr,0,sizeof(arr)); 
+        root.push_back(new Node());
+    }
 
     ll init(int nl, int nr) { return init(nl,nr,root[0]); }
     ll init(int nl, int nr, Node* node){
