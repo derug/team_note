@@ -26,15 +26,14 @@ struct SCC{
         }
 
         if(low[a]==dfn[a]){
-            vector<int> tmp;
+            scc.emplace_back();
             while(1){
                 int t=S.top(); S.pop();
-                tmp.push_back(t);
+                scc.back().push_back(t);
                 col[t]=sn;
                 fin[t]=true;
                 if(t==a) break;
             }
-            scc.push_back(tmp);
             sn++;
         }
 
@@ -44,17 +43,17 @@ struct SCC{
     void makeSCC(){
         for(int i=0; i<n; i++)
             if(!dfn[i]) dfs(i);
-        for(int i=0; i<sn; i++){
-            vector<int> tmp;
-            vector<bool> mark(sn);
+        
+        sadj.resize(sn);
+        for(int i=0; i<sn; i++)
             for(int a: scc[i])
                 for(int b: adj[a])
                     if(col[a]!=col[b])
-                        mark[col[b]]=true;
-            for(int j=0; j<sn; j++)
-                if(mark[j])
-                    tmp.push_back(j);
-            sadj.push_back(tmp);
+                        sadj[col[a]].push_back(col[b]);
+        
+        for(int i=0; i<sn; i++){
+            sort(sadj[i].begin(), sadj[i].end());
+            sadj[i].erase(unique(sadj[i].begin(), sadj[i].end()), sadj[i].end());
         }
     }
 };
