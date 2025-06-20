@@ -1,10 +1,10 @@
 // path compression
 
-struct Union_Find{
+struct UnionFind{
     int n;
     vector<int> p;
 
-    Union_Find(int _n): n(_n){
+    UnionFind(int _n): n(_n){
         p.resize(n);
         for(int i=0; i<n; i++) p[i]=i;
     }
@@ -28,11 +28,11 @@ struct Union_Find{
 
 // rank compression
 
-struct Union_Find{
+struct UnionFind{
     int n;
     vector<int> p, d;
 
-    Union_Find(int _n): n(_n){
+    UnionFind(int _n): n(_n){
         p.resize(n);
         d.resize(n);
         for(int i=0; i<n; i++) p[i]=i;
