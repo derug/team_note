@@ -40,6 +40,7 @@ struct Modular{
             }
             if(found) return rt;
         }
+        return -1;
     }
     static const Modular& root() {
         static const Modular rt=root(M);
@@ -79,3 +80,9 @@ struct Modular{
 
 const int MOD=1e9+7;
 using ModInt=Modular<MOD>;
+
+int main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    
+    cout << ModInt::root();
+}
