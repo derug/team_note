@@ -1,7 +1,3 @@
-#include<bits/stdc++.h>
-
-using namespace std;
-
 template<int M>
 struct Modular{
     static const int32_t MOD=M;
@@ -46,6 +42,7 @@ struct Modular{
         static const Modular rt=root(M);
         return rt;
     }
+    static const int32_t mod() { return MOD; }
 
     template<typename T> operator T() const { return static_cast<T>(value); }
     const int32_t operator ()() const { return value; }
@@ -55,6 +52,7 @@ struct Modular{
     friend Modular operator *(const Modular& lhs, const Modular& rhs) { return Modular(lhs)*=rhs; }
     friend Modular operator /(const Modular& lhs, const Modular& rhs) { return Modular(lhs)/=rhs; }
 
+    Modular& operator =(const Modular& other) { value=other.value; return *this; }
     Modular& operator +=(const Modular& other) { value+=other.value; value-=(value>=MOD)*MOD; return *this; }
     Modular& operator -=(const Modular& other) { value-=other.value; value+=(value<0)*MOD; return *this; }
     Modular& operator *=(const Modular& other) { value=1LL*value*other.value%MOD; return *this; }
@@ -78,11 +76,5 @@ struct Modular{
     friend ostream& operator <<(ostream& os, const Modular& number) { return os << number(); }
 };
 
-const int MOD=1e9+7;
+const int MOD=1e9+7; // MOD=998244353;
 using ModInt=Modular<MOD>;
-
-int main(){
-    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    
-    cout << ModInt::root();
-}
