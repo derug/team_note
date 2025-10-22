@@ -1,18 +1,49 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
 template<int M>
 struct Modular{
-    static const int MOD=M;
+    static const int32_t MOD=M;
     int32_t value;
     constexpr Modular(): value(0) {}
     template<typename T> Modular(const T& v): value(v%MOD) { if(value<0) value+=MOD; }
 
     template<typename T> static T inv(T x, T m) { return x>1?m-1LL*inv(m%x,x)*m/x:1; }
-    static Modular power(Modular& x, int64_t p){
+    static Modular power(Modular x, int64_t p){
         Modular result=1;
         while(p>0) {
             if(p&1) result*=x;
             x*=x; p>>=1;
         }
         return result;
+    }
+    static Modular root(int32_t n){
+        vector<int32_t> fact;
+        // int32_t phi=euler_totient(n);
+        int32_t phi=n-1;
+        int32_t m=phi;
+        for(int32_t d=2; d*d<=m; d++){
+            if(m%d==0){
+                fact.push_back(d);
+                while(m%d==0) m/=d;
+            }
+        }
+        if(m>1) fact.push_back(m);
+        for(int32_t rt=2; rt<n; rt++){
+            bool found=true;
+            for(int32_t d: fact){
+                if(power(rt,phi/d)==1){
+                    found=false;
+                    break;
+                }
+            }
+            if(found) return rt;
+        }
+    }
+    static const Modular& root() {
+        static const Modular rt=root(M);
+        return rt;
     }
 
     template<typename T> operator T() const { return static_cast<T>(value); }
@@ -47,4 +78,4 @@ struct Modular{
 };
 
 const int MOD=1e9+7;
-using ModInt = Modular<MOD>;
+using ModInt=Modular<MOD>;
