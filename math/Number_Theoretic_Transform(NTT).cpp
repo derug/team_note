@@ -27,11 +27,11 @@ void ntt(vector<ModInt>& f, bool invert){
 }
 
 vector<ModInt> multiply(vector<ModInt> a, vector<ModInt> b){
-    int n=1;
+    int n=1, sz=a.size()+b.size()-1;
     while(n<a.size()+b.size()) n<<=1;
     a.resize(n); b.resize(n);
     ntt(a,false); ntt(b,false);
     for(int i=0; i<n; i++) a[i]*=b[i];
-    ntt(a,true);
+    ntt(a,true); a.resize(sz);
     return a;
 }
