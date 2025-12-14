@@ -26,13 +26,13 @@ void fft(vector<complex<double>>& f, bool invert){
 
 vector<int> multiply(const vector<int>& a, const vector<int>& b){
     vector<complex<double>> fa(a.begin(), a.end()), fb(b.begin(), b.end());
-    int n=1;
+    int n=1, sz=a.size()+b.size()-1;
     while(n<a.size()+b.size()) n<<=1;
     fa.resize(n); fb.resize(n);
     vector<int> c(n);
     fft(fa,false); fft(fb,false);
     for(int i=0; i<n; i++) fa[i]*=fb[i];
-    fft(fa,true);
+    fft(fa,true); c.resize(sz);
     for(int i=0; i<n; i++) c[i]=round(fa[i].real());
     return c;
 }
